@@ -111,12 +111,16 @@ WebDriverWait(driver, 10).until(
 
 driver.find_element(By.XPATH, "(//button[@type='button'])[10]").click()
 
-WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, "(//button[@type='button'])[50]"))
+# click on the Release button
+WebDriverWait(driver, 15).until(
+    EC.element_to_be_clickable((By.XPATH, '(//button[contains(@class, "MuiButton-containedPrimary") '
+                                          'and normalize-space()="Release"])[3]'))
 )
 
-driver.find_element(By.XPATH, "(//button[@type='button'])[50]").click()
+driver.find_element(By.XPATH, '(//button[contains(@class, "MuiButton-containedPrimary") '
+                              'and normalize-space()="Release"])[3]').click()
 
+# wait for the pop-up success message
 WebDriverWait(driver, 15).until(
     EC.presence_of_element_located((By.XPATH, "(//div[@class='MuiSnackbarContent-message'])[1]"))
 )
@@ -129,7 +133,7 @@ WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.XPATH, "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9'])[2]"))
 )
 
-time.sleep(1)
+time.sleep(5)
 
 driver.find_element(By.XPATH, "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9'])[2]").click()
 
