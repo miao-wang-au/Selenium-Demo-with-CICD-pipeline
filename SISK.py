@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
-
+# Think about how to implement @fixture by utilizing pytest
 driver = webdriver.Chrome()
 driver.maximize_window()
 driver.get("https://aims-sisk-ui-test.aga.rbxd.ds/login")
@@ -99,5 +99,6 @@ WebDriverWait(driver, 10).until(
 requisitioncreated = driver.find_element(By.XPATH, "(//div[@role='alert'])[1]").text
 
 print(requisitioncreated)
+
 
 time.sleep(5)
