@@ -14,12 +14,11 @@ def pytest_addoption(parser):
     )
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def driver(request):
     browser = request.config.getoption("--browser")
-
-    # Setup
     print(f"\nSetting up: {browser} driver")
+
     if browser == "chrome":
         options = ChromeOptions()
         options.add_argument('--headless')
@@ -37,7 +36,7 @@ def driver(request):
     else:
         raise ValueError(f"Unsupported browser: {browser}")
 
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(5)
     yield driver
 
     print(f"\nTear down: {browser} driver")
