@@ -2,7 +2,7 @@ name: selenium_demo
 on: [push]
 
 jobs:
-  build:
+  selenium-tests:
     runs-on: ubuntu-latest
 
     strategy:
@@ -42,6 +42,7 @@ jobs:
 
       # Upload test report as artifact
       - name: Upload test report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-report-${{ matrix.browser }}
