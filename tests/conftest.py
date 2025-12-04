@@ -17,10 +17,8 @@ def pytest_addoption(parser):
 def driver(request):
     browser = request.config.getoption("--browser")
 
-    driver = ""
-
     options = Options()
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
 
     # Setup
     print(f"\nSetting up: {browser} driver")
@@ -29,6 +27,9 @@ def driver(request):
 
     elif browser == "firefox":
         driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+
+    else:
+        raise ValueError(f"Unsupported browser: {browser}")
 
     driver.implicitly_wait(10)
     yield driver
