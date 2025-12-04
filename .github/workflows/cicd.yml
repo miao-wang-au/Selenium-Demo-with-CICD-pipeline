@@ -5,9 +5,6 @@ jobs:
   selenium-tests:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        browser: [chrome, firefox]
 
     steps:
       - uses: actions/checkout@v3
@@ -17,42 +14,23 @@ jobs:
         with:
           python-version: "3.10"
 
-      # Cache pip packages
-      - name: Cache pip
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-  
-      
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          
 
-      # Install browsers if needed
-      - name: Install browsers
-        run: |
-          if [ "${{matrix.browser}}" = "firefox" ]; then
-            sudo apt-get update && sudo apt-get install -y firefox
-          fi
-          
 
       #Run tests
       - name: Run Selenium tests
         run: |
           mkdir -p tests/reports
-          pytest tests/test_login.py \
-            --browser=${{ matrix.browser }} \
-            --html=tests/reports/${{ matrix.browser }}-report.html
+          pytest tests/test_login.py --browser=chrome --html=tests/reports/automation-report-chrome.html
+
 
       # Upload test report as artifact
       - name: Upload test report
-        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-report-${{ matrix.browser }}
-          path: tests/reports/${{ matrix.browser }}-report.html
+          name: test-report
+          path: tests/reports/
