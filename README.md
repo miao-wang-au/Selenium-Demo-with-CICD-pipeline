@@ -1,4 +1,4 @@
-# Selenium-Demo
+# Selenium Python demo with CI/CD pipeline
 
 This demo I created contains 3 parts: 
 
