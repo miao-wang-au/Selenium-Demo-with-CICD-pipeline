@@ -2,9 +2,9 @@
 
 This demo I created contains 3 parts: 
 
-1. Automation scripts within the folder 'SISK selenium python demo' to showcase the test automation for generating replenishment orders and running tests on a medical supply warehouse website.
-2. Automation scripts within the 'tests' folder to show case the 3 test cases covering 3 scenarios regarding the login functions on a sample website, which will be executed automatically as part of the CI/CD pipeline whenever there is new code/changes been pushed to the repository.
-3. The actual CI/CD pipeline configurations and the workflow yml file located in '.github -> workflow' folder.
+1. First project: Automation scripts within the folder 'SISK selenium python demo' to showcase the test automation for generating replenishment orders and running tests on a medical supply warehouse website.
+2. Second project: Automation scripts within the 'tests' folder to show case the 3 test cases covering 3 scenarios regarding the login functions on a sample website, which will be executed automatically as part of the CI/CD pipeline whenever there is new code/changes been pushed to the repository.
+3. The actual CI/CD pipeline configurations and the workflow yml file located in '.github -> workflow' folder regarding the second project.
 
 
 ## Automation scripts for SISK Warehouse
