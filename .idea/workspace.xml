@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42ebbb91-d1e0-4b1e-a431-c5d70c713566" name="Changes" comment="updating requirements.txt">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/cicd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cicd.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SISK selenium python demo/SISK.py" beforeDir="false" afterPath="$PROJECT_DIR$/SISK selenium python demo/SISK.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SISK selenium python demo/SISK3.py" beforeDir="false" afterPath="$PROJECT_DIR$/SISK selenium python demo/SISK3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

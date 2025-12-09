@@ -1,4 +1,5 @@
 import pytest
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,7 +18,8 @@ def test_release_requisition(driver):
     # ---------------- Login ----------------
     driver.get("https://aims-sisk-ui-test.aga.rbxd.ds/login")
     driver.find_element(By.NAME, "username").send_keys("f4fadmin@f4f.com")
-    driver.find_element(By.NAME, "password").send_keys("marDzBHU35wB")
+    sisk_password = os.getenv("SISK_PASSWORD")
+    driver.find_element(By.NAME, "password").send_keys(sisk_password)
     driver.find_element(By.XPATH, "//button[@type='submit']").click()
 
     # ---------------- Select Supplier ----------------
